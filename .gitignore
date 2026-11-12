@@ -1,0 +1,15 @@
+# Publish only reviewed explanations and the import catalog.
+# All other files stay local, including research, images, scripts and backups.
+/*
+!/.gitignore
+!/README.md
+!/docs/
+/docs/*
+!/docs/README.ja.md
+!/games/
+/games/*
+!/games/hit2/
+/games/hit2/*
+!/games/hit2/ja/
+/games/hit2/ja/*
+!/games/hit2/ja/import.json
