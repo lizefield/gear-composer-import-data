@@ -3,12 +3,12 @@ Unofficial HIT: The World catalog transcribed from supplied screenshots.
 - [Japanese guide](docs/README.ja.md)
 - [Import JSON](games/hit2/ja/import.json)
 
-Revision **47**: **457 records, 80 attributes, 2461 numeric values**.
+Revision **49**: **457 records, 81 attributes, 2826 numeric values**.
 365 equipment items,32 cards,38 pets,22 souls. 457 primary images map one-to-one to records; one additional Edda Incarnation image confirms the same six values.59 records lacking supplied-image evidence were removed; no name-only items remain.
 
 All457 records are calculation-enabled using the displayed numeric values from supplied images. No values were converted or estimated. Each kind is represented as one item. Displayed values are not claimed to be initial or maximum values.
 
-Limits:4 cards,1 pet,1 soul and one shared weapon slot. The current app does not enforce same-card/restricted-ring duplicate rules. Class selection filters weapon compatibility; leaving class unspecified searches across all classes. Displayed percentages are simply summed, not a complete damage model. Storage/disassembly rows, two lower icon values and collection details are excluded. Power-stone points are informational.
+Limits:4 cards,1 pet,1 soul and one shared weapon slot. The current app does not enforce same-card/restricted-ring duplicate rules. Class selection filters weapon compatibility; leaving class unspecified searches across all classes. Displayed percentages are simply summed, not a complete damage model. Storage/disassembly rows, two lower icon values and collection details are excluded. Power-stone points are included as a selectable, summable attribute for 365 equipment items.
 
 Mount records were removed in revision41; records lacking image evidence were removed in revision42. Merge imports do not automatically delete previously imported records, ownership or saved-set references. Back up personal data before manual cleanup. Do not delete the game merely to match counts. Existing image-supported item IDs remain stable. JSON import currently requires Pro.
 
@@ -33,3 +33,11 @@ Rarity colors: common gray, uncommon green, rare blue, heroic purple, ancient ye
 
 ## レアリティの高さ（revision 47）
 各ランクに `rank` を追加しました。大きい数ほど高レアリティです。一般1・高級2・希少3・英雄4・古代5・伝説6・不滅7です。アイテム一覧では同じ装備先の中で高レアリティ順、置き換え候補では指定属性の値が大きい順（同じ値は高レアリティ順）に表示します。指定属性がない候補は、属性がある候補の後で高レアリティ順になります。従来のhit2データも対応アプリではこの順序で表示します。アイテムID・能力値・所持情報は変更しません。
+
+
+## 装備先と重複するタグの整理（revision 48）
+アイテムのタグから「カード」32件・「ペット」38件・「闘魂」22件を削除しました。これらは装備先で絞り込めます。その他のタグは保持しています。更新JSONを再インポートすると反映されます。
+
+
+## パワーストーンポイント（revision 49）
+通常装備365件のmetadataに保存していたポイントを、属性 `attr.power-stone-points` にも登録しました。属性選択・合計・セット検索に使用できます。表示値0の25件も0として登録し、値のないカード・ペット・闘魂には補完していません。単位はなし、小数なしです。更新JSONを再インポートしてください。
